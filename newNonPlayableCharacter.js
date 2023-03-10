@@ -23,7 +23,8 @@ function newNonPlayableCharacter(x, y) {
 
   setInterval(moveCharacter, 1);
 
-  function walkEast(time, callback) {
+  async function walkEast(time, callback) {
+    await sleep(5000);
     direction = "east";
     element.src = `./assets/green-character/east.gif`;
     setTimeout(() => {
@@ -33,7 +34,8 @@ function newNonPlayableCharacter(x, y) {
       }
     }, time);
   }
-  function walkNorth(time, callback) {
+  async function walkNorth(time, callback) {
+    await sleep(5000);
     direction = "north";
     element.src = `./assets/green-character/north.gif`;
     setTimeout(() => {
@@ -43,7 +45,8 @@ function newNonPlayableCharacter(x, y) {
       }
     }, time);
   }
-  function walkWest(time, callback) {
+  async function walkWest(time, callback) {
+    await sleep(5000);
     direction = "west";
     element.src = `./assets/green-character/west.gif`;
     setTimeout(() => {
@@ -53,7 +56,8 @@ function newNonPlayableCharacter(x, y) {
       }
     }, time);
   }
-  function walkSouth(time, callback) {
+  async function walkSouth(time, callback) {
+    await sleep(5000);
     direction = "south";
     element.src = `./assets/green-character/south.gif`;
     setTimeout(() => {
@@ -77,4 +81,9 @@ function newNonPlayableCharacter(x, y) {
     walkSouth: walkSouth,
     stop: stop,
   };
+}
+function sleep(time) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, time);
+  });
 }
